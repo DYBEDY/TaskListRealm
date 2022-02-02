@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Мои задачи-->
+        <!--Task List-->
         <scene sceneID="XDe-EZ-exM">
             <objects>
                 <tableViewController id="09e-Yg-nih" customClass="TaskListViewController" customModule="TaskListRealm" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,9 +19,12 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
-                                <segment title="Дата"/>
-                                <segment title="А-Я"/>
+                                <segment title="Date"/>
+                                <segment title="A-Z"/>
                             </segments>
+                            <connections>
+                                <action selector="sortingList:" destination="09e-Yg-nih" eventType="valueChanged" id="LAy-dH-cah"/>
+                            </connections>
                         </segmentedControl>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskListCell" textLabel="sKX-eH-scH" detailTextLabel="xk5-3k-NS3" style="IBUITableViewCellStyleValue1" id="kBf-yG-apS">
@@ -57,7 +60,7 @@
                             <outlet property="delegate" destination="09e-Yg-nih" id="qeH-Wp-8gc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Мои задачи" id="c04-bt-LWq"/>
+                    <navigationItem key="navigationItem" title="Task List" id="c04-bt-LWq"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9S3-2W-l2N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

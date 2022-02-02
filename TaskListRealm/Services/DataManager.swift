@@ -13,8 +13,9 @@ class DataManager {
     
     private init() {}
     
-    func createTempData(completion: @escaping () -> Void) {
-        if !UserDefaults.standard.bool(forKey: "TasksDemo") {
+    func createTempDataV2(completion: @escaping () -> Void) {
+        if !UserDefaults.standard.bool(forKey: "testBase") {
+            
             let shoppingList = TaskList()
             shoppingList.name = "Поход в магазин"
             
@@ -24,18 +25,23 @@ class DataManager {
             
             let bananas = Task()
             bananas.name = "Бананы"
-            bananas.note = "2 кг"
+            bananas.note = "5 кг"
             
             let fish = Task()
             fish.name = "Рыба"
             fish.note = "свежая"
             
-            shoppingList.tasks.insert(contentsOf: [milk, bananas, fish], at: 0)
+            
+
+            shoppingList.tasks.insert(contentsOf: [milk,bananas, fish], at: 0)
+          
             
             DispatchQueue.main.async {
                 StorageManager.shared.save([shoppingList])
-                UserDefaults.standard.set(true, forKey: "TasksDemo")
+                UserDefaults.standard.set(true, forKey: "testBase")
+                completion()
             }
         }
     }
 }
+
